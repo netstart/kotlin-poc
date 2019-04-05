@@ -1,18 +1,22 @@
 package ifood.company.entity
 
 import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
 import javax.persistence.Id
 
 @Entity
-data class Company(
-    @Id val id: Long,
-    val responsibleName: String,
-    val position: String,
-    val phone: String,
-    val email: String,
-    val companyName: String,
-    val segment: Segment,
-    val employerTotal: EmployerTotal? = null
+data class Company (
+        @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+        val id: Long?,
+
+        val responsibleName: String,
+        val position: String,
+        val phone: String,
+        val email: String,
+        val companyName: String,
+        val segment: Segment,
+        val employerTotal: EmployerTotal? = null
 )
 
 enum class Segment {
